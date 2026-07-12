@@ -11,11 +11,7 @@ export default defineConfig([
   eslintConfigPrettier,
 
   {
-    ignores: [
-      'node_modules/**',
-      'dist/**',
-      'build/**',
-    ],
+    ignores: ['node_modules/**', 'dist/**', 'build/**'],
   },
 
   {

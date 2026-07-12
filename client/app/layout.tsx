@@ -1,20 +1,21 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import type { Metadata } from 'next';
+import { Geist, Geist_Mono } from 'next/font/google';
+import './globals.css';
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
-  title: "DealsRadarUA — Пошук вигідних цін: Rozetka, OLX, Prom",
-  description: "Моніторинг цін товарів в Україні. Знайдіть найкращі пропозиції на Розетці, OLX та Пром без рекламного шуму.",
+  title: 'DealsRadarUA — Пошук вигідних цін: Rozetka, OLX, Prom',
+  description:
+    'Моніторинг цін товарів в Україні. Знайдіть найкращі пропозиції на Розетці, OLX та Пром без рекламного шуму.',
 };
 
 export default function RootLayout({
