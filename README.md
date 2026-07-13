@@ -50,6 +50,23 @@ To scale search request volumes without triggering rate limits or Cloudflare cha
 
 ---
 
-## ⚙️ Local Development Setup
+## 🚀 Quick Start & Local Deployment
+
+This project is fully containerized using Docker, allowing you to clone the repository and run the entire stack instantly without any manual dependency installation.
+
+### 1. Prerequisites
+Make sure you have [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/) installed on your machine.
+
+### 2. Environment Setup
+To run the application locally, you need to set up the configuration scopes. Review the structure and create the following `.env` files:
+
+* **Client Setup:** Create a `.env` file inside the `/client` directory and ensure `NEXT_PUBLIC_API_URL` points to your backend gateway:
+  ```env
+  NEXT_PUBLIC_API_URL=http://localhost:5000
+### 3. Run with Docker
+Launch the entire stack (Frontend, Backend) with a single command:
+
+```bash
+docker compose up --build
 
 
