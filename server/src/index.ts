@@ -9,7 +9,7 @@ import { scheduleBrowserCleanup } from './utils/browser';
 const app = express();
 app.use(
   cors({
-    origin: 'http://localhost:3000',
+    origin: 'https://deals-radar-ua-frontend.vercel.app',
     credentials: true,
   }),
 );
