@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { Suspense } from 'react';
 import SearchInput from '../components/SearchInput';
 import { ProductSourceSection } from '../components/ProductSourceSection';
@@ -8,16 +7,6 @@ import { SearchResultsCounter, EmptyStateGuard } from '../components/SearchWidge
 import { LoadingSkeletonGrid } from '../components/LoadingCard';
 export const dynamic = 'force-dynamic';
 
-interface Product {
-  id: string;
-  title: string;
-  price: number;
-  image: string;
-  link: string;
-  source: 'Rozetka' | 'OLX' | 'Prom';
-  isUsed: boolean;
-  conditionDetails?: string;
-}
 interface SearchPageProps {
   searchParams: Promise<{ q?: string }>;
 }

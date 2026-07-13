@@ -1,3 +1,4 @@
+const BASE_URL = process.env.API_URL;
 import Image from 'next/image';
 import { ProgressReporter } from './ProgressReporter';
 interface Product {
@@ -14,7 +15,7 @@ async function fetchSourceData(query: string, source: 'rozetka' | 'prom' | 'olx'
   if (!query) return [];
   try {
     const res = await fetch(
-      `http://localhost:5000/api/search/${source}?query=${encodeURIComponent(query)}`,
+      `${BASE_URL}api/search/${source}?query=${encodeURIComponent(query)}`,
       { cache: 'no-store' },
     );
     if (!res.ok) throw new Error(`Backend error for ${source}`);
