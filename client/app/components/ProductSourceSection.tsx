@@ -1,4 +1,4 @@
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
+const BASE_URL = process.env.API_URL || process.env.NEXT_PUBLIC_API_URL;
 import Image from 'next/image';
 import { ProgressReporter } from './ProgressReporter';
 interface Product {
