@@ -12,7 +12,7 @@
 
 > **How it works:** Watch the app stream live search results directly from multiple platforms with skeleton loading and real-time state updates.
 
-https://github.com/user-attachments/assets/YOUR-VIDEO-ID-HERE
+[https://github.com/user-attachments/assets/YOUR-VIDEO-ID-HERE](https://github.com/user-attachments/assets/43c24eba-ea66-4909-b7a7-4c3acc20e180)
 
 ---
 
