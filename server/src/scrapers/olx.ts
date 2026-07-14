@@ -84,7 +84,7 @@ export async function parseOLX(query: string): Promise<Product[]> {
     page.setRequestInterception(true)]);
     page.on('request', (req) => {
       const resourceType = req.resourceType();
-      if (['image', 'font', 'media'].includes(resourceType)) {
+      if (['image', 'stylesheet', 'font', 'media'].includes(resourceType)) {
         req.abort();
       } else {
         req.continue();
