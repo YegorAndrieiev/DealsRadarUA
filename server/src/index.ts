@@ -7,6 +7,7 @@ import { parseProm } from './scrapers/prom';
 import { parseRozetka } from './scrapers/rozetka';
 import { scheduleBrowserCleanup } from './utils/browser';
 const app = express();
+app.set('trust proxy', 1);
 app.use(
   cors({
     origin: 'https://deals-radar-ua-frontend.vercel.app', //use for local development: http://localhost:3000
