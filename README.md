@@ -61,8 +61,23 @@ Make sure you have [Docker](https://www.docker.com/) and [Docker Compose](https:
 To run the application locally, you need to set up the configuration scopes. Review the structure and create the following `.env` files:
 
 * **Client Setup:** Create a `.env` file inside the `/client` directory and ensure `NEXT_PUBLIC_API_URL` points to your backend gateway:
-  ```env
-  NEXT_PUBLIC_API_URL=http://localhost:5000
+  ```env
+  NEXT_PUBLIC_API_URL=http://localhost:5001/
+  ```
+* **Server Setup:** Create a `.env` file inside the `/server` directory and define the local development port:
+  ```env
+  PORT=5000
+  ```
+  
+  > ⚠️ **Important:** You also need to adjust the CORS settings in your server entry file (e.g., `src/index.ts`) for local development. Change the origin to `http://localhost:3000`:
+  ```typescript
+  app.use(
+    cors({
+      origin: 'https://deals-radar-ua-frontend.vercel.app', //use for local development: http://localhost:3000
+      credentials: true,
+    }),
+  );
+  ```
 ### 3. Run with Docker
 Launch the entire stack (Frontend, Backend) with a single command:
 
