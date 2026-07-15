@@ -1,6 +1,7 @@
 import { getBrowser } from "../utils/browser";
 import * as cheerio from "cheerio";
 import { Product } from "../utils/types";
+import { createPage } from "../utils/createPage";
 
 function cleanTitle(title: string): string {
   if (!title) return '';
@@ -78,7 +79,7 @@ export async function parseOLX(query: string): Promise<Product[]> {
   const url = `https://www.olx.ua/uk/list/q-${encodedQuery}/`;
   
   const browser = await getBrowser();
-  const page = await browser.newPage();
+  const page = await createPage(browser);
   try {
     await Promise.all([page.setViewport({ width: 1280, height: 800 }),
     page.setRequestInterception(true)]);

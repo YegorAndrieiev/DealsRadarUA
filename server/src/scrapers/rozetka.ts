@@ -1,6 +1,7 @@
 import { getBrowser } from "../utils/browser";
 import * as cheerio from "cheerio";
 import { Product } from "../utils/types";
+import { createPage } from "../utils/createPage";
 function cleanTitle(title: string): string {
   if (!title) return '';
   return title
@@ -69,7 +70,7 @@ export async function parseRozetka(searchQuery: string): Promise<any[]> {
   const encodedQuery = encodeURIComponent(searchQuery);
   const url = `https://rozetka.com.ua/ua/search/?text=${encodedQuery}`;
   const browser = await getBrowser();
-  const page = await browser.newPage();
+  const page = await createPage(browser);
   try {
     await Promise.all([page.setViewport({ width: 1280, height: 800 }),
     page.setRequestInterception(true)]);
