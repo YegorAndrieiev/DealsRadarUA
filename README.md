@@ -46,7 +46,6 @@ To optimize performance and avoid Vercel's serverless execution limits for backg
 ### 🛡️ Anti-Scraping Bypass & IP Rotation
 To scale search request volumes without triggering rate limits or Cloudflare challenges on major marketplaces (especially Rozetka and OLX), the system is ready to implement:
 * **Rotating Residential Proxies:** Easy configuration to route backend requests through dynamic proxy pools, ensuring a unique IP for every outgoing search batch.
-* **Dynamic Header & User-Agent Spoofing:** Dynamic browser fingerprinting to simulate organic user behavior and prevent scraper detection.
 
 ---
 
