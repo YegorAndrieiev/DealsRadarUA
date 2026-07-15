@@ -67,8 +67,14 @@ To run the application locally, you need to set up the configuration scopes. Rev
   ```env
   PORT=5000
   ```
-  
-  > ⚠️ **Important:** You also need to adjust the CORS settings in your server entry file (e.g., `src/index.ts`) for local development. Change the origin to `http://localhost:3000`:
+  > 💡 **Note (Optional Proxy Configuration):** 
+  > In most cases, your regular home IP address is more than enough for local development. However, if you experience blocks or captchas while scraping, you can configure residential proxies by adding these variables to your server `.env` file:
+  > ```env
+  > PROXY_USERNAME=YOUR_PROXY_USERNAME
+  > PROXY_PASSWORD=YOUR_PROXY_PASSWORD
+  > PROXY_HOST=http://YOUR_PROXY_IP:YOUR_PROXY_PORT
+  > ```
+  ⚠️ **Important:** You also need to adjust the CORS settings in your server entry file (e.g., `src/index.ts`) for local development. Change the origin to `http://localhost:3000`:
   ```typescript
   app.use(
     cors({
