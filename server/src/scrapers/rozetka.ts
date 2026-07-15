@@ -74,7 +74,15 @@ export async function parseRozetka(searchQuery: string): Promise<any[]> {
   try {
     await Promise.all([page.setViewport({ width: 1280, height: 800 }),
     page.setRequestInterception(true)]);
-    await page.goto(url, { waitUntil: 'networkidle2', timeout: 45000 });
+    page.on('request', (req) => {
+      const resourceType = req.resourceType();
+      if (['image', 'stylesheet', 'font', 'media'].includes(resourceType)) {
+        req.abort();
+      } else {
+        req.continue();
+      }
+    });
+    await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
     const title = await page.title();
     if (title.includes('Just a moment') || title.includes('Attention Required')) {
       throw new Error('Cloudflare block could not be bypassed automatically.');

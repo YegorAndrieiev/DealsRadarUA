@@ -26,13 +26,13 @@ app.get('/api/search/rozetka', min15Limiter, async (req, res) => {
 
 app.get('/api/search/prom', min15Limiter, async (req, res) => {
   const query = req.query.query as string;
-  res.json([]);
+  res.json(await parseProm(query));
   scheduleBrowserCleanup();
 });
 
 app.get('/api/search/olx', min15Limiter, async (req, res) => {
   const query = req.query.query as string;
-  res.json([]);
+  res.json(await parseOLX(query));
   scheduleBrowserCleanup();
 });
 app.listen(env.PORT, '0.0.0.0', () => {
