@@ -2,7 +2,7 @@
 
 [![Live Demo](https://img.shields.io/badge/Demo-Live%20On%20Vercel-brightgreen?style=for-the-badge)](https://deals-radar-ua-frontend.vercel.app/)
 [![Next.js](https://img.shields.io/badge/Frontend-Next.js%2015-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
-[![Node.js](https://img.shields.io/badge/Backend-Node.js%20%2F%20Express-green?style=for-the-badge&logo=node.js)](https://nodejs.org/)
+[![Apify](https://img.shields.io/badge/Backend-Apify%20Actor-blue?style=for-the-badge&logo=apify)](https://apify.com/)
 
 **DealsRadarUA** is a high-performance, ad-free, and spam-free real-time deal aggregator. It allows users in Ukraine to instantly search and track product listings across major e-commerce platforms (OLX, Prom, Rozetka) simultaneously, bypassing bloated interfaces, promotional clutter, and sponsored spam.
 
@@ -22,13 +22,13 @@
 * **Progressive Loading (Streaming SSR):** Seamless user experience powered by React Suspense. Data is streamed incrementally as soon as each platform responds, eliminating the "all-or-nothing" wait time.
 * **Multi-Source Aggregation:** Simultaneous high-speed scraping across OLX, Prom, and Rozetka.
 * **Dark Mode Support:** Fully responsive interface with native dark/light theme switching based on a modern design.
-* **Production-Ready Scalability:** Strict separation of the Frontend (Next.js on Vercel) and the Backend (Express parser engine on Render) for independent scaling and cost efficiency.
+* **Production-Ready Scalability:** Strict separation of the Frontend (Next.js on Vercel) and the Backend (Apify Actor for efficient, distributed web scraping and resource management).
 
 ---
 
 ## 🛠️ Tech Stack & Architecture
 
-To optimize performance and avoid Vercel's serverless execution limits for background processes, the project's architecture is decoupled into two dedicated environments:
+To optimize performance and handle browser-based scraping efficiently, the project's architecture is decoupled into two dedicated environments:
 
 ### Frontend
 * **Framework:** Next.js
@@ -36,9 +36,9 @@ To optimize performance and avoid Vercel's serverless execution limits for backg
 * **Deployment:** Vercel
 
 ### Backend (Parser Engine)
-* **Runtime:** Node.js / Express
-* **Scraping:** High-performance custom HTTP scrapers
-* **Deployment:** Render
+* **Runtime:** Node.js / Apify SDK
+* **Scraping:** High-performance headless browser automation (Puppeteer) with stealth techniques
+* **Deployment:** Apify Platform
 
 ---
 
