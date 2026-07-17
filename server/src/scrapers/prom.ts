@@ -33,10 +33,8 @@ function extractDataFromHtml(html: string): Product[] {
       const priceTextClean = priceText.replace(/\s/g, '').replace(',', '.');
       const priceMatch = priceTextClean.match(/\d+(\.\d+)?/);
       const price = priceMatch ? parseFloat(priceMatch[0]) : 0;
-      const imgElement = card.find('img');
-      const sourceElement = card.find('picture source').first();
-      let rawImage = sourceElement.attr('srcset') || 
-                     imgElement.attr('data-src') || 
+      const imgElement = card.find('img[data-qaid="image_link"]');
+      let rawImage = imgElement.attr('srcset') || 
                      imgElement.attr('src') || 
                      'https://placehold.co/400x400?text=Зображення%0AВідсутнє';
       let image = rawImage.split(' ')[0];
