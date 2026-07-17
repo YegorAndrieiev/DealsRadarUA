@@ -7,7 +7,12 @@
 **DealsRadarUA** is a high-performance, ad-free, and spam-free real-time deal aggregator. It allows users in Ukraine to instantly search and track product listings across major e-commerce platforms (OLX, Prom, Rozetka) simultaneously, bypassing bloated interfaces, promotional clutter, and sponsored spam.
 
 ---
-
+> ⚠️ **Important Note on Live Demo & Scraping Limits:**
+> 
+> Because platforms like Rozetka, Prom, and OLX employ aggressive anti-bot protections, the hosted live demo relies on a shared pool of server proxies. If the **Live Demo does not return search results**, it means the backend proxy IPs are temporarily rate-limited or exhausted.
+> 
+> **For stable and unlimited performance, please run the project locally.** Running it on your own machine utilizes your clean, residential IP, which bypasses these server-side proxy blocks effortlessly.
+---
 ## 📺 Project Demo
 
 > **How it works:** Watch the app stream live search results directly from multiple platforms with skeleton loading and real-time state updates.
