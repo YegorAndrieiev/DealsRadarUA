@@ -1,6 +1,6 @@
 'use client';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useState, useTransition, useEffect } from 'react';
+import { useState, useTransition } from 'react';
 import { useSearchContext } from './SearchContext';
 
 export default function SearchInput() {
@@ -10,9 +10,6 @@ export default function SearchInput() {
   const [isPending, startTransition] = useTransition();
   const { isSearching } = useSearchContext();
   const isBusy = isPending || isSearching;
-  useEffect(() => {
-    setQuery(searchParams.get('q') || '');
-  }, [searchParams]);
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -43,8 +40,8 @@ export default function SearchInput() {
         autoComplete="off"
         disabled={isBusy}
         className={`w-full bg-zinc-100 dark:bg-zinc-850 pl-10 pr-20 py-2 rounded-xl text-sm border border-transparent text-zinc-900 dark:text-zinc-100 focus:outline-none transition-all ${
-          isBusy 
-            ? 'opacity-70 dark:bg-zinc-800' 
+          isBusy
+            ? 'opacity-70 dark:bg-zinc-800'
             : 'focus:border-blue-500 focus:bg-white dark:focus:bg-zinc-900'
         }`}
       />
@@ -53,7 +50,9 @@ export default function SearchInput() {
       )}
       <span className="absolute left-3 top-2.5 text-zinc-400 text-sm select-none">
         {isBusy ? (
-          <span className="inline-block animate-[spin_2.5s_linear_infinite]">⏳</span>
+          <span className="inline-block animate-[spin_2.5s_linear_infinite]">
+            ⏳
+          </span>
         ) : (
           '🔎'
         )}

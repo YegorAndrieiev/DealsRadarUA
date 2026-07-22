@@ -10,7 +10,13 @@ interface SearchContextType {
 
 const SearchContext = createContext<SearchContextType | null>(null);
 
-export function SearchProvider({ children, totalExpected }: { children: ReactNode, totalExpected: number }) {
+export function SearchProvider({
+  children,
+  totalExpected,
+}: {
+  children: ReactNode;
+  totalExpected: number;
+}) {
   const [totalCount, setTotalCount] = useState(0);
   const [loadedSources, setLoadedSources] = useState<string[]>([]);
   const reportSourceDone = (source: string, count: number) => {
@@ -22,13 +28,16 @@ export function SearchProvider({ children, totalExpected }: { children: ReactNod
   };
   const isSearching = loadedSources.length < totalExpected;
   return (
-    <SearchContext.Provider value={{ totalCount, loadedSources, isSearching, reportSourceDone }}>
+    <SearchContext.Provider
+      value={{ totalCount, loadedSources, isSearching, reportSourceDone }}
+    >
       {children}
     </SearchContext.Provider>
   );
 }
 export function useSearchContext() {
   const context = useContext(SearchContext);
-  if (!context) throw new Error('useSearchContext must be used within SearchProvider');
+  if (!context)
+    throw new Error('useSearchContext must be used within SearchProvider');
   return context;
 }

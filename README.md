@@ -7,12 +7,15 @@
 **DealsRadarUA** is a high-performance, ad-free, and spam-free real-time deal aggregator. It allows users in Ukraine to instantly search and track product listings across major e-commerce platforms (OLX, Prom, Rozetka) simultaneously, bypassing bloated interfaces, promotional clutter, and sponsored spam.
 
 ---
+
 > ⚠️ **Important Note on Live Demo & Scraping Limits:**
-> 
+>
 > Because platforms like Rozetka, Prom, and OLX employ aggressive anti-bot protections, the hosted live demo relies on a shared pool of server proxies. If the **Live Demo does not return search results**, it means the backend proxy IPs are temporarily rate-limited or exhausted.
-> 
+>
 > **For stable and unlimited performance, please run the project locally.** Running it on your own machine utilizes your clean, residential IP, which bypasses these server-side proxy blocks effortlessly.
+
 ---
+
 ## 📺 Project Demo
 
 > **How it works:** Watch the app stream live search results directly from multiple platforms with skeleton loading and real-time state updates.
@@ -23,11 +26,11 @@
 
 ## 🌟 Key Features
 
-* **Zero Ads & Spam:** Clean, minimalist UI focused purely on finding the best deals without promotional noise or native ad injections.
-* **Progressive Loading (Streaming SSR):** Seamless user experience powered by React Suspense. Data is streamed incrementally as soon as each platform responds, eliminating the "all-or-nothing" wait time.
-* **Multi-Source Aggregation:** Simultaneous high-speed scraping across OLX, Prom, and Rozetka.
-* **Dark Mode Support:** Fully responsive interface with native dark/light theme switching based on a modern design.
-* **Production-Ready Scalability:** Strict separation of the Frontend (Next.js on Vercel) and the Backend (Apify Actor for efficient, distributed web scraping and resource management).
+- **Zero Ads & Spam:** Clean, minimalist UI focused purely on finding the best deals without promotional noise or native ad injections.
+- **Progressive Loading (Streaming SSR):** Seamless user experience powered by React Suspense. Data is streamed incrementally as soon as each platform responds, eliminating the "all-or-nothing" wait time.
+- **Multi-Source Aggregation:** Simultaneous high-speed scraping across OLX, Prom, and Rozetka.
+- **Dark Mode Support:** Fully responsive interface with native dark/light theme switching based on a modern design.
+- **Production-Ready Scalability:** Strict separation of the Frontend (Next.js on Vercel) and the Backend (Apify Actor for efficient, distributed web scraping and resource management).
 
 ---
 
@@ -36,21 +39,24 @@
 To optimize performance and handle browser-based scraping efficiently, the project's architecture is decoupled into two dedicated environments:
 
 ### Frontend
-* **Framework:** Next.js
-* **Styling:** Tailwind CSS
-* **Deployment:** Vercel
+
+- **Framework:** Next.js
+- **Styling:** Tailwind CSS
+- **Deployment:** Vercel
 
 ### Backend (Parser Engine)
-* **Runtime:** Node.js / Apify SDK
-* **Scraping:** High-performance headless browser automation (Puppeteer) with stealth techniques
-* **Deployment:** Apify Platform
+
+- **Runtime:** Node.js / Apify SDK
+- **Scraping:** High-performance headless browser automation (Puppeteer) with stealth techniques
+- **Deployment:** Apify Platform
 
 ---
 
-
 ### 🛡️ Anti-Scraping Bypass & IP Rotation
+
 To scale search request volumes without triggering rate limits or Cloudflare challenges on major marketplaces (especially Rozetka and OLX), the system is ready to implement:
-* **Rotating Residential Proxies:** Easy configuration to route backend requests through dynamic proxy pools, ensuring a unique IP for every outgoing search batch.
+
+- **Rotating Residential Proxies:** Easy configuration to route backend requests through dynamic proxy pools, ensuring a unique IP for every outgoing search batch.
 
 ---
 
@@ -59,21 +65,24 @@ To scale search request volumes without triggering rate limits or Cloudflare cha
 This project is fully containerized using Docker, allowing you to clone the repository and run the entire stack instantly without any manual dependency installation.
 
 ### 1. Prerequisites
+
 Make sure you have [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/) installed on your machine.
 
 ### 2. Environment Setup
+
 To run the application locally, you need to set up the configuration scopes. Review the structure and create the following `.env` files:
 
-* **Client Setup:** Create a `.env` file inside the `/client` directory and ensure `NEXT_PUBLIC_API_URL` points to your backend gateway:
+- **Client Setup:** Create a `.env` file inside the `/client` directory and ensure `NEXT_PUBLIC_API_URL` points to your backend gateway:
   ```env
   NEXT_PUBLIC_API_URL=http://localhost:5001/
   ```
-* **Server Setup:** Create a `.env` file inside the `/server` directory and define the local development port:
+- **Server Setup:** Create a `.env` file inside the `/server` directory and define the local development port:
   ```env
   PORT=5000
   ```
-  > 💡 **Note (Optional Proxy Configuration):** 
+  > 💡 **Note (Optional Proxy Configuration):**
   > In most cases, your regular home IP address is more than enough for local development. However, if you experience blocks or captchas while scraping, you can configure residential proxies by adding these variables to your server `.env` file:
+  >
   > ```env
   > PROXY_USERNAME=YOUR_PROXY_USERNAME
   > PROXY_PASSWORD=YOUR_PROXY_PASSWORD
@@ -88,10 +97,13 @@ To run the application locally, you need to set up the configuration scopes. Rev
     }),
   );
   ```
+
 ### 3. Run with Docker
+
 Launch the entire stack (Frontend, Backend) with a single command:
 
 ```bash
 docker compose up --build
 
 
+```

@@ -1,7 +1,7 @@
-import puppeteer from "puppeteer-extra";
-import StealthPlugin from "puppeteer-extra-plugin-stealth";
-import { Browser } from "puppeteer";
-import { env } from "../config/env";
+import puppeteer from 'puppeteer-extra';
+import StealthPlugin from 'puppeteer-extra-plugin-stealth';
+import { Browser } from 'puppeteer';
+import { env } from '../config/env';
 puppeteer.use(StealthPlugin());
 
 let browser: Browser | null = null;
@@ -13,11 +13,11 @@ export async function getBrowser(): Promise<Browser> {
     const args = [
       '--no-sandbox',
       '--disable-setuid-sandbox',
-      '--disable-dev-shm-usage', 
-      '--disable-gpu', 
+      '--disable-dev-shm-usage',
+      '--disable-gpu',
       '--no-first-run',
       '--no-zygote',
-      '--single-process'
+      '--single-process',
     ];
     if (env.PROXY_HOST) {
       args.push(`--proxy-server=http://${env.PROXY_HOST}`);
@@ -25,18 +25,21 @@ export async function getBrowser(): Promise<Browser> {
     browser = await puppeteer.launch({
       headless: true,
       executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
-      args
+      args,
     });
   }
   return browser;
 }
 export function scheduleBrowserCleanup() {
   if (idleTimer) clearTimeout(idleTimer);
-  idleTimer = setTimeout(async () => {
-    if (browser) {
-      console.log('Browser idle for 10 minutes, closing...');
-      await browser.close();
-      browser = null;
-    }
-  }, 10 * 60 * 1000);
+  idleTimer = setTimeout(
+    async () => {
+      if (browser) {
+        console.log('Browser idle for 10 minutes, closing...');
+        await browser.close();
+        browser = null;
+      }
+    },
+    10 * 60 * 1000,
+  );
 }
